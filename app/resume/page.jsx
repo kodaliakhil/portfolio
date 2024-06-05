@@ -160,6 +160,7 @@ const Resume = () => {
           </TabsList>
           {/* content */}
           <div className="min-h-[70vh] w-full">
+
             {/* experience */}
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -191,6 +192,7 @@ const Resume = () => {
                 </ScrollArea>
               </div>
             </TabsContent>
+
             {/* education */}
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -200,7 +202,7 @@ const Resume = () => {
                 </p>
                 <ScrollArea className="h-[400px]">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                    {experience.items.map((item, index) => {
+                    {education.items.map((item, index) => {
                       return (
                         <li
                           key={index}
@@ -208,12 +210,12 @@ const Resume = () => {
                         >
                           <span className="text-accent">{item.duration}</span>
                           <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
-                            {item.position}
+                            {item.degree}
                           </h3>
                           <div className="flex items-center gap-3">
                             {/* dot */}
                             <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                            <p className="text-white/60">{item.company}</p>
+                            <p className="text-white/60">{item.institution}</p>
                           </div>
                         </li>
                       );
@@ -222,10 +224,12 @@ const Resume = () => {
                 </ScrollArea>
               </div>
             </TabsContent>
+
             {/* skills */}
             <TabsContent value="skills" className="w-full">
               skills
             </TabsContent>
+            
             {/* about */}
             <TabsContent value="about" className="w-full">
               about
