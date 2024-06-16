@@ -21,12 +21,13 @@ const Photo = () => {
           className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute"
         >
           <Image
-            src="/uchiha.png"
+            src="/AkhilDP.png"
             priority
             quality={100}
             fill
-            alt=""
-            className="object-contain"
+            alt="Akhil DP"
+            style={{borderRadius:"50%"}}
+            className="object-cover"
           />
         </motion.div>
         {/* Circle */}
