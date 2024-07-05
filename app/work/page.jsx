@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 import {
@@ -13,40 +14,56 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
+import "swiper/css";
+import "swiper/css/pagination";
+import "./work.css";
 
 const projects = [
   {
     num: "01",
     category: "frontend",
-    title: "Project 1",
+    title: "Silver Screen Savvy",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi a.",
+      "Silver Screen Savvy is a web application built using React and Redux that allows users to search for movies and TV shows, view popular, trending, and upcoming releases on a daily and weekly basis, and explore detailed information about each title, including trailers and related videos.",
     stack: [{ name: "html" }, { name: "css" }, { name: "javascript" }],
-    image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
+    images: [
+      "/assets/work/project1/p1-i1.png",
+      "/assets/work/project1/p1-i2.png",
+      "/assets/work/project1/p1-i3.png",
+      "/assets/work/project1/p1-i4.png",
+    ],
+    live: "https://silver-screen-savvy-swao.vercel.app/explore/movie",
+    github: "https://github.com/kodaliakhil/Silver-Screen-Savvy",
   },
   {
     num: "02",
-    category: "fullstack",
-    title: "Project 2",
+    category: "frontend",
+    title: "OpenAI Article Summarizer",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi a.",
+      "In an era of information overload, navigating through lengthy articles can be time-consuming and overwhelming. Enter the OpenAI Article Summarizer Website, a powerful tool designed to streamline the consumption of written content. Leveraging cutting-edge technologies like React.js, JavaScript, Redux, and Tailwind CSS, this web application empowers users to distill complex articles into concise summaries with just a click.",
     stack: [{ name: "next.js" }, { name: "Tailwind.css" }, { name: "Node.js" }],
-    image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
+    images: [
+      "/assets/work/project2/p2-i1.png",
+      "/assets/work/project2/p2-i2.png",
+    ],
+    live: "https://open-ai-article-summarizer-ten.vercel.app/",
+    github: "https://github.com/kodaliakhil/OpenAI-Summarizer",
   },
   {
     num: "03",
     category: "frontend",
-    title: "Project 3",
+    title: "Beyond Balance Fitness",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi a.",
+      "Experience a dynamic landing page meticulously designed and developed using React, tailored specifically for a fitness influencer. This engaging platform highlights services, client testimonials, and interactive fitness content, ensuring a seamless user experience that embodies the influencer's brand and expertise.",
     stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
-    image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
+    images: [
+      "/assets/work/project3/p3-i1.png",
+      "/assets/work/project3/p3-i2.png",
+      "/assets/work/project3/p3-i3.png",
+      "/assets/work/project3/p3-i4.png",
+    ],
+    live: "https://fitness-app-one-olive.vercel.app/",
+    github: "https://github.com/kodaliakhil/fitness-app",
   },
 ];
 
@@ -80,7 +97,9 @@ const Work = () => {
                 {project.category} project
               </h2>
               {/* project description */}
-              <p className="text-white/60">{project.description}</p>
+              <p className="text-white/60 text-justify">
+                {project.description}
+              </p>
               {/* stack */}
               <ul className="flex gap-4">
                 {project.stack.map((item, index) => {
@@ -141,19 +160,58 @@ const Work = () => {
                       <div className="absolute w-full h-full top-0 bottom-0 bg-black/10 z-10"></div>
                       {/* image */}
                       <div className="relative w-full h-full">
-                        <Image
+                        {/* <Image
                           src={project.image}
                           fill
                           className="object-cover"
                           alt=""
-                        />
+                        /> */}
+
+                        <Swiper
+                          spaceBetween={30}
+                          centeredSlides={true}
+                          style={{
+                            "--swiper-pagination-color": "#00FF99",
+                          }}
+                          autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                          }}
+                          pagination={{
+                            clickable: true,
+                          }}
+                          modules={[Autoplay, Pagination]}
+                          className="mySwiper"
+                        >
+                          {project.images.map((image, i) => {
+                            console.log(image);
+                            return (
+                              <SwiperSlide key={i}>
+                                <Image
+                                  src={image}
+                                  className="object-cover"
+                                  alt=""
+                                  fill
+                                />
+                              </SwiperSlide>
+                            );
+                          })}
+                          {/* <SwiperSlide >sfklks</SwiperSlide>
+                           <SwiperSlide >dkfhmfdgndflk</SwiperSlide>
+                           <SwiperSlide >dfkhldfhlk</SwiperSlide> */}
+                        </Swiper>
                       </div>
                     </div>
                   </SwiperSlide>
                 );
               })}
               {/* slider buttons */}
-              <WorkSliderBtns containerStyles={"flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"} btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"/>
+              <WorkSliderBtns
+                containerStyles={
+                  "flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
+                }
+                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+              />
             </Swiper>
           </div>
         </div>
