@@ -48,9 +48,7 @@ const Contact = () => {
             <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
               <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
               <p className="text-white/60">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni
-                deleniti vitae maxime rerum consequuntur quidem error
-                blanditiis!
+              Let's collaborate to create innovative, user-friendly web solutions. Leveraging my expertise in front-end development and UI/UX for optimal results.
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

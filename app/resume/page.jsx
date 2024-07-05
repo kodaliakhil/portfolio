@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 const about = {
   title: "About me",
   description:
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic sint dolore, corrupti repellat quia veritatis sunt eveniet.",
+    "Skilled Software Developer with 1+ years experience in React, Next.js, delivering scalable web applications, improving business efficiency and revenue.",
   info: [
     {
       fieldName: "Name",
@@ -57,33 +57,14 @@ const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic sint dolore, corrupti repellat quia veritatis sunt eveniet.",
+    "Skilled Software Developer with 1+ years experience in React, Next.js, delivering scalable web applications, improving business efficiency and revenue.",
   items: [
     {
       company: "KodeCorp",
-      position: "Frontend Developer",
-      duration: "2023 - Present",
+      position: "Software Developer",
+      duration: "Apr 2023 - Jun 2024",
     },
-    {
-      company: "KodeCorp",
-      position: "Frontend Developer",
-      duration: "2023 - Present",
-    },
-    {
-      company: "KodeCorp",
-      position: "Frontend Developer",
-      duration: "2023 - Present",
-    },
-    {
-      company: "KodeCorp",
-      position: "Frontend Developer",
-      duration: "2023 - Present",
-    },
-    {
-      company: "KodeCorp",
-      position: "Frontend Developer",
-      duration: "2023 - Present",
-    },
+    
   ],
 };
 // education data
@@ -91,7 +72,7 @@ const education = {
   icon: "/assets/resume/cap.svg",
   title: "My education",
   description:
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic sint dolore, corrupti repellat quia veritatis sunt eveniet.",
+    "Holding a PG Diploma in Data Science from IIIT Bangalore, and a Bachelor's in Electronics and Communication Engineering from CMR Institute of Technology.",
   items: [
     {
       institution: "IIITB",
@@ -100,7 +81,7 @@ const education = {
     },
     {
       institution: "CMRIT",
-      degree: "Bachelor of Engineering",
+      degree: "Bachelor of Technology",
       duration: "2017 - 2021",
     },
   ],
@@ -109,7 +90,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic sint dolore, corrupti repellat quia veritatis sunt eveniet.",
+    "Proficient in HTML, CSS, JavaScript, TypeScript, and Python. Experienced with React, Next.js, Node.js, and PostgreSQL. Strong problem-solving and communication skills.",
   skillsList: [
     {
       icon: <FaHtml5 />,

@@ -7,28 +7,28 @@ const services = [
     num: "01",
     title: "Web Development",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi a.",
+      "Expert web developer crafting high-performance, responsive, user-friendly websites.",
     href: "",
   },
   {
     num: "02",
     title: "UI/UX Design",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi a.",
+      "Skilled UI/UX designer crafting intuitive, user-centered digital experiences.",
     href: "",
   },
   {
     num: "03",
     title: "Logo Design",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi a.",
+      "Proficient in logo design, creating impactful, memorable brand identities.",
     href: "",
   },
   {
     num: "04",
     title: "SEO",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi a.",
+      "Optimizing websites for higher search rankings and visibility.",
     href: "",
   },
 ];
