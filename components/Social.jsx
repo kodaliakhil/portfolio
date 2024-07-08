@@ -4,26 +4,26 @@ import { Github, Linkedin, Youtube, Twitter } from "lucide-react";
 const socials = [
   {
     icon: <Github />,
-    path: "",
+    path: "https://github.com/kodaliakhil",
   },
   {
     icon: <Linkedin />,
-    path: "",
+    path: "https://www.linkedin.com/in/akhil-kodali/",
   },
-  {
-    icon: <Youtube />,
-    path: "",
-  },
+  // {
+  //   icon: <Youtube />,
+  //   path: "",
+  // },
   {
     icon: <Twitter />,
-    path: "",
+    path: "https://x.com/kodaliakhil1999",
   },
 ];
 const Social = ({ containerStyles, iconStyles }) => {
   return (
     <div className={containerStyles}>
       {socials.map((item, index) => (
-        <Link href={item.path} key={index} className={iconStyles}>
+        <Link href={item.path} key={index} className={iconStyles} target="_blank">
           {item.icon}
         </Link>
       ))}
