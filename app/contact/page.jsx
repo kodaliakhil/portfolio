@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import emailjs from '@emailjs/browser';
+
 const info = [
   {
     icon: <FaPhoneAlt />,
@@ -32,6 +34,49 @@ const info = [
 ];
 import { motion } from "framer-motion";
 const Contact = () => {
+  async function handleSubmit(event) {
+
+    event.preventDefault();
+    const formData = new FormData(event.target)
+
+   
+      const templateParams = {
+        from_name: formData.get('firstname') + " " + formData.get('lastname'),
+        from_email: formData.get('email'),
+        from_phone: formData.get('phone'),
+        service: formData.get('service'),
+        message: formData.get('message')
+      }
+      emailjs.send(process.env.NEXT_PUBLIC_SERVICE, process.env.NEXT_PUBLIC_TEMPLATE, templateParams, process.env.NEXT_PUBLIC_USER)
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+    
+
+    //-------------------------- If we use Node mailer use this Code -----------------------
+    // console.log(formData)
+    // try {
+
+    //     const response = await fetch('/api/contact', {
+    //         method: 'post',
+    //         body: formData,
+    //     });
+
+    //     if (!response.ok) {
+    //         console.log("falling over")
+    //         throw new Error(`response status: ${response.status}`);
+    //     }
+    //     const responseData = await response.json();
+    //     console.log(responseData['message'])
+
+    //     alert('Message successfully sent');
+    // } catch (err) {
+    //     console.error(err);
+    //     alert("Error, please try resubmitting the form");
+    // }
+};
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -45,29 +90,29 @@ const Contact = () => {
         <div className="flex flex-col xl:flex-row gap-[30px]">
           {/* form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl" onSubmit={handleSubmit}>
               <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
               <p className="text-white/60">
               Let's collaborate to create innovative, user-friendly web solutions. Leveraging my expertise in front-end development and UI/UX for optimal results.
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstname" placeholder="Enter your firstname" />
-                <Input type="lastname" placeholder="Enter your lastname" />
-                <Input type="email" placeholder="Enter your email" />
-                <Input type="phone" placeholder="Enter your phone number" />
+                <Input type="firstname" name="firstname" placeholder="Enter your firstname" />
+                <Input type="lastname" name="lastname" placeholder="Enter your lastname" />
+                <Input type="email" name="email" placeholder="Enter your email" />
+                <Input type="phone" name="phone" placeholder="Enter your phone number" />
               </div>
               {/* select */}
-              <Select>
+              <Select name="service">
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="est">Web Development</SelectItem>
-                    <SelectItem value="cst">UI/UX Design</SelectItem>
-                    <SelectItem value="mst">Logo Design</SelectItem>
+                    <SelectItem value="Web Developement">Web Development</SelectItem>
+                    <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
+                    <SelectItem value="Logo Design">Logo Design</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -75,9 +120,10 @@ const Contact = () => {
               <Textarea
                 className="h-[200px]"
                 placeholder="Type your message here."
+                name="message"
               />
               {/* btn */}
-              <Button size="md" className="max-w-40">
+              <Button type="submit" size="md" className="max-w-40">
                 Send Message
               </Button>
             </form>
